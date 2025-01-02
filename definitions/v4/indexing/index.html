@@ -1,0 +1,114 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Fedora Commons Indexing Ontology</title>
+        <style>
+          body { width: 80%; margin: 0 auto; }
+          header { text-align: center; }
+          h1 { font-size: 2em; }
+          h2 { font-size: 1.7em; }
+          h3 { font-size: 1.4em; padding-top: 20px; }
+          h4 { margin-bottom: 0.25em; }
+          body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
+          table { width: 100%; margin: 15px 0; border-collapse: collapse; }
+          tr { border: 1px solid #ccc; }
+          th { background-color: #ddd; padding: 5px; font-size: 120%; text-align:center; font-weight: bold; }
+          td { vertical-align: top; padding: 5px; border: 1px solid #ccc; }
+          td:first-child { width: 150px; font-weight: bold; white-space: nowrap; }
+          tr.about td:nth-child(2) { font-size: 120%; font-family: monospace; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="assets/fedora_logo.png">
+            <h1>Fedora Commons Indexing Ontology</h1>
+            <table>
+                <tr class="about">
+                    <td>Namespace</td><td>http://fedora.info/definitions/v4/indexing#</td>
+                </tr>
+                <tr class="comment">
+                    <td>Description</td><td>Ontology for indexing configuration in Fedora repositories.</td>
+                </tr>
+                <tr class="version">
+                    <td>Version</td><td>v4/2015/03/26</td>
+                </tr>
+                <tr>
+                    <td>Last Modified</td><td></td>
+                </tr>
+                <tr class="version">
+                    <td>Prior version</td><td><a href="http://fedora.info/definitions/v4/2015/02/04/indexing">http://fedora.info/definitions/v4/2015/02/04/indexing</a></td>
+                </tr>
+                <tr>
+                    <td>Published by</td><td><a href="http://fedorarepository.org/">http://fedorarepository.org/</a></td>
+                </tr>
+                <tr>
+                    <td>See Also</td><td><a href="https://wiki.duraspace.org/display/FEDORA4x/External+Search">https://wiki.duraspace.org/display/FEDORA4x/External+Search</a></td>
+                </tr>
+            </table>
+        </header>
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <p>
+                <a href="#Classes">Classes</a>
+            </p>
+            <p>
+                <a href="#Properties">Properties</a>
+            </p>
+        </div>
+        <article>
+            <hr>
+            <h2>Entity Definitions</h2>
+            <a name="Classes"></a>
+            <h3>Classes</h3>
+            <div id="Indexable">
+                <table>
+                    <tr>
+                        <th colspan="2">indexing:Indexable</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/indexing#Indexable</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>indexable resource</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A resource that has been marked as indexable.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>rdfs:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td>http://fedora.info/definitions/v4/repository#Resource </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#hasIndexingTransformation">indexing:hasIndexingTransformation</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <a name="Properties"></a>
+            <h3>Properties</h3>
+            <div id="hasIndexingTransformation">
+                <table>
+                    <tr>
+                        <th colspan="2">indexing:hasIndexingTransformation</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/indexing#hasIndexingTransformation</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has indexing transformation</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Specifies an indexing transformation</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>rdf:Property</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Indexable">indexing:Indexable</a> </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+    </body>
+</html>
