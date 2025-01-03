@@ -1,0 +1,1024 @@
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <head>
+        <META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Fedora Commons Repository Ontology</title>
+        <style>
+          body { width: 80%; margin: 0 auto; }
+          header { text-align: center; }
+          h1 { font-size: 2em; }
+          h2 { font-size: 1.7em; }
+          h3 { font-size: 1.4em; }
+          h4 { margin-bottom: 0.25em; }
+          body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
+          table { width: 100%; margin: 15px 0; border-collapse: collapse; }
+          tr { border: 1px solid #ccc; }
+          th { background-color: #ddd; padding: 5px; font-size: 120%; text-align:center; font-weight: bold; }
+          td { vertical-align: top; padding: 5px; border: 1px solid #ccc; }
+          td:first-child { width: 150px; font-weight: bold; white-space: nowrap; }
+          tr.about td:nth-child(2) { font-size: 120%; font-family: monospace; }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="assets/fedora_logo.png">
+            <h1>Fedora Commons Repository Ontology</h1>
+            <table>
+                <tr class="about">
+                    <td>Namespace</td><td>http://fedora.info/definitions/v4/repository#</td>
+                </tr>
+                <tr class="comment">
+                    <td>Description</td><td>Ontology for the Fedora data model, intended primarily to make it possible to expose Fedora-curated RDF predicates via de-reference-able URIs.</td>
+                </tr>
+                <tr class="version">
+                    <td>Version</td><td>v4/2016/10/18</td>
+                </tr>
+                <tr class="version">
+                    <td>Prior version</td><td><a href="http://fedora.info/definitions/v4/2016/03/01/repository">http://fedora.info/definitions/v4/2016/03/01/repository</a></td>
+                </tr>
+            </table>
+        </header>
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            <p>
+                <a href="#Classes">Classes</a>
+            </p>
+            <p>
+                <a href="#NamedIndividuals">Named Individuals</a>
+            </p>
+            <p>
+                <a href="#ObjectProperties">Object Properties</a>
+            </p>
+            <p>
+                <a href="#DatatypeProperties">Datatype Properties</a>
+            </p>
+        </div>
+        <article>
+            <hr>
+            <h2>Entity Definitions</h2>
+            <a name="Classes"></a>
+            <h3>Classes</h3>
+            <div id="AnnotatedResource">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:AnnotatedResource</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#AnnotatedResource</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>annotated resource</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A Resource that maintains properties in its own right.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Resource">fedora:Resource</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Binary">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Binary</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Binary</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>binary</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A bitstream, with no further data properties.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Resource">fedora:Resource</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#hasContent">fedora:hasContent</a> <a href="#isContentOf">fedora:isContentOf</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Configuration">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Configuration</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Configuration</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>Fedora configuration</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A container for a Fedora configuration.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Container">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Container</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Container</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>Fedora Container</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A Fedora Container: the fundamental quantum of durable content in a Fedora repository.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#AnnotatedResource">fedora:AnnotatedResource</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#baseVersion">fedora:baseVersion</a> <a href="#hasChild">fedora:hasChild</a> <a href="#hasParent">fedora:hasParent</a> <a href="#hasVersion">fedora:hasVersion</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="EmbedResources">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:EmbedResources</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#EmbedResources</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>embed resources</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>The set of triples representing child resources of a given resource.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="InboundReferences">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:InboundReferences</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#InboundReferences</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>inbound references</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>The set of triples representing other repository resources which link to a given resource.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="NonRdfSourceDescription">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:NonRdfSourceDescription</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#NonRdfSourceDescription</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>Fedora NonRdfSourceDescription</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A container for a bitstream and associated properties.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#AnnotatedResource">fedora:AnnotatedResource</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#hasContent">fedora:hasContent</a> <a href="#isContentOf">fedora:isContentOf</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Pairtree">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Pairtree</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Pairtree</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>pair tree</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>An entity that is a an intermediary node created in a PairTree hierarchy.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Relations">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Relations</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Relations</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>An entity that may be related to other repository entities.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="RepositoryRoot">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:RepositoryRoot</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#RepositoryRoot</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>repository root</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A repository root.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Resource">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Resource</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Resource</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>Fedora resource</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>An entity that has been committed to the repository for safekeeping. For example, Fedora objects and datastreams are resources. A Fixity is not, because the provenance of the instance is entirely internal to the repository.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#hasParent">fedora:hasParent</a> <a href="#hasResultsMember">fedora:hasResultsMember</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="ServerManaged">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:ServerManaged</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#ServerManaged</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>server managed</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>The system-generated triples for a given resource (as opposed to explicity-declared properties).</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Skolem">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Skolem</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Skolem</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>skolem</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>An entity that is a representation of an RDF Skolem node.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Thing">fedora:Thing</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Thing">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Thing</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Thing</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>Fedora thing</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Something that is contemplated in the Fedora repository model.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Tombstone">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Tombstone</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Tombstone</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>tombstone</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>An entity that is a marker for a deleted node.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="Version">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:Version</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#Version</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>A snapshot of a Fedora object at a given point in time.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:Class</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Subclass Of</td><td><a href="#Container">fedora:Container</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Used With</td><td><a href="#baseVersion">fedora:baseVersion</a> <a href="#hasVersion">fedora:hasVersion</a> <a href="#predecessors">fedora:predecessors</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <a name="NamedIndividuals"></a>
+            <h3>Named Individuals</h3>
+            <div id="inaccessibleResource">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:inaccessibleResource</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#inaccessibleResource</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>inaccessible resource</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>A Fedora resource that is inaccessible.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:NamedIndividual</td>
+                    </tr>
+                </table>
+            </div>
+            <a name="ObjectProperties"></a>
+            <h3>Object Properties</h3>
+            <div id="baseVersion">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:baseVersion</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#baseVersion</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>base version</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>rdf:type</td><td>http://www.w3.org/2002/07/owl#FunctionalProperty </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Container">fedora:Container</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Version">fedora:Version</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasAccessRoles">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasAccessRoles</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasAccessRoles</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has access roles</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasChild">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasChild</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasChild</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has child</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>rdf:type</td><td>http://www.w3.org/2002/07/owl#InverseFunctionalProperty </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Container">fedora:Container</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasContent">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasContent</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasContent</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has content</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Indicates a binary in which content is stored for this datastream.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#NonRdfSourceDescription">fedora:NonRdfSourceDescription</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Binary">fedora:Binary</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasFixityService">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasFixityService</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasFixityService</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has fixity service</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasMember">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasMember</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasMember</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has member</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Links to a newly-minted identifier which can be used to create a repository resource.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasNamespaces">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasNamespaces</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasNamespaces</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has namespaces</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasParent">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasParent</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasParent</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has parent</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>rdf:type</td><td>http://www.w3.org/2002/07/owl#FunctionalProperty </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Resource">fedora:Resource</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Container">fedora:Container</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasResultsMember">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasResultsMember</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasResultsMember</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has results member</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Resource">fedora:Resource</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasVersion">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasVersion</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasVersion</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has version</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Container">fedora:Container</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Version">fedora:Version</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasVersions">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasVersions</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasVersions</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has versions</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="isContentOf">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:isContentOf</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#isContentOf</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>is content of</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Indicates a datastream for which this resource contains the content. </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>rdf:type</td><td>http://www.w3.org/2002/07/owl#InverseFunctionalProperty </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Binary">fedora:Binary</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#NonRdfSourceDescription">fedora:NonRdfSourceDescription</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="predecessors">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:predecessors</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#predecessors</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>predecessors</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Domain</td><td><a href="#Version">fedora:Version</a> </td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="#Version">fedora:Version</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="sparql">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:sparql</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#sparql</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has sparql service</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:ObjectProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <a name="DatatypeProperties"></a>
+            <h3>Datatype Properties</h3>
+            <div id="computedChecksum">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:computedChecksum</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#computedChecksum</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="computedSize">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:computedSize</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#computedSize</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="couldNotStoreProperty">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:couldNotStoreProperty</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#couldNotStoreProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="created">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:created</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#created</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="createdBy">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:createdBy</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#createdBy</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasLocation">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasLocation</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasLocation</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasMoreResults">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasMoreResults</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasMoreResults</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has more results</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasTransactionProvider">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasTransactionProvider</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasTransactionProvider</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>has transaction provider</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="hasVersionLabel">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:hasVersionLabel</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#hasVersionLabel</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="isCheckedOut">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:isCheckedOut</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#isCheckedOut</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="lastModified">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:lastModified</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#lastModified</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="lastModifiedBy">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:lastModifiedBy</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#lastModifiedBy</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="numberOfChildren">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:numberOfChildren</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#numberOfChildren</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="numFixityChecks">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:numFixityChecks</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#numFixityChecks</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="numFixityErrors">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:numFixityErrors</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#numFixityErrors</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="numFixityRepaired">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:numFixityRepaired</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#numFixityRepaired</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">xsd:nonNegativeInteger</a> </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="objectCount">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:objectCount</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#objectCount</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="objectSize">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:objectSize</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#objectSize</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="writable">
+                <table>
+                    <tr>
+                        <th colspan="2">fedora:writable</th>
+                    </tr>
+                    <tr class="about">
+                        <td>URI</td><td>http://fedora.info/definitions/v4/repository#writable</td>
+                    </tr>
+                    <tr class="label">
+                        <td>Label</td><td>writable</td>
+                    </tr>
+                    <tr class="comment">
+                        <td>Description</td><td>Whether or not the resource with this representation could have been altered by the same agent that received this representation if the request that retrieved this representation had been a mutating request.</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Type</td><td>owl:DatatypeProperty</td>
+                    </tr>
+                    <tr class="property">
+                        <td>Range</td><td><a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a> </td>
+                    </tr>
+                </table>
+            </div>
+        </article>
+    </body>
+</html>
