@@ -1,0 +1,159 @@
+<html xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Fedora Commons OAI-PMH Ontology</title>
+<style>
+          body { width: 80%; margin: 0 auto; }
+          header { text-align: center; }
+          h1 { font-size: 2em; }
+          h2 { font-size: 1.7em; }
+          h3 { font-size: 1.4em; }
+          h4 { margin-bottom: 0.25em; }
+          body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
+          table { width: 100%; margin: 15px 0; border-collapse: collapse; }
+          tr { border: 1px solid #ccc; }
+          th { background-color: #ddd; padding: 5px; font-size: 120%; text-align:center; font-weight: bold; }
+          td { vertical-align: top; padding: 5px; border: 1px solid #ccc; }
+          td:first-child { width: 150px; font-weight: bold; white-space: nowrap; }
+          tr.about td:nth-child(2) { font-size: 120%; font-family: monospace; }
+        </style>
+</head>
+<body>
+<header><img src="assets/fedora_logo.png"><h1>Fedora Commons OAI-PMH Ontology</h1>
+<table>
+<tr class="about">
+<td>Namespace</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Describes relationships between Fedora Commons Repository objects used to provide an OAI-PMH service.</td>
+</tr>
+<tr class="version">
+<td>Version</td>
+<td>v4/2017/02/17</td>
+</tr>
+<tr class="version">
+<td>Prior version</td>
+<td><a href="http://fedora.info/definitions/v4/2015/03/26/oai-pmh">http://fedora.info/definitions/v4/2015/03/26/oai-pmh</a></td>
+</tr>
+</table></header><div class="table-of-contents">
+<h2>Table of Contents</h2>
+<p><a href="#ObjectProperties">Object Properties</a></p>
+<p><a href="#DatatypeProperties">Datatype Properties</a></p>
+</div>
+<article><hr>
+<h2>Entity Definitions</h2>
+<a name="ObjectProperties"></a><h3>Object Properties</h3>
+<div id="hasOAISet"><table>
+<tr><th colspan="2">oaipmh:hasOAISet</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#hasOAISet</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Adds new OAI Set definitions to a specialized parent object linking to all existing OAI Sets.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:ObjectProperty</td>
+</tr>
+<tr class="property">
+<td>Domain</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+</table></div>
+<div id="hasOaiDCRecord"><table>
+<tr><th colspan="2">oaipmh:hasOaiDCRecord</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#hasOaiDCRecord</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Links to an oai_dc record emitted for the linked subject.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:ObjectProperty</td>
+</tr>
+<tr class="property">
+<td>Domain</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+</table></div>
+<div id="isPartOfOAISet"><table>
+<tr><th colspan="2">oaipmh:isPartOfOAISet</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#isPartOfOAISet</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Links a Fedora object to an OAI set.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:ObjectProperty</td>
+</tr>
+<tr class="property">
+<td>Domain</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+</table></div>
+<a name="DatatypeProperties"></a><h3>Datatype Properties</h3>
+<div id="hasOAISetName"><table>
+<tr><th colspan="2">oaipmh:hasOAISetName</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#hasOAISetName</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>The name of an OAI Set.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:DatatypeProperty</td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>
+<a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a> </td>
+</tr>
+</table></div>
+<div id="hasOAISetSpec"><table>
+<tr><th colspan="2">oaipmh:hasOAISetSpec</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/v4/oai-pmh#hasOAISetSpec</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>The SetSpec of an OAI Set.  See http://www.openarchives.org/OAI/openarchivesprotocol.html#Set</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:DatatypeProperty</td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>
+<a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a> </td>
+</tr>
+</table></div></article>
+</body>
+</html>

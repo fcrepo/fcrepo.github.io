@@ -7,6 +7,7 @@ The content is comprised from several GitHub projects
  * https://github.com/fcrepo-exts/fcrepo-extra-ontologies
  * https://github.com/fcrepo/ontology
  * https://github.com/fcrepo/fcrepo-webac-ontology
+ * https://github.com/fcrepo4-labs/fcrepo-oai-pmh-ontology
  * https://github.com/fcrepo/fcrepo-specification
  * https://github.com/fcrepo/fcrepo-specification-atomic-operations
 
