@@ -1,0 +1,181 @@
+<html xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Fedora Commons Repository - Resource Status Ontology</title>
+<style>
+          body { width: 80%; margin: 0 auto; }
+          header { text-align: center; }
+          h1 { font-size: 2em; }
+          h2 { font-size: 1.7em; }
+          h3 { font-size: 1.4em; }
+          h4 { margin-bottom: 0.25em; }
+          body { font-family: sans-serif; background: url(assets/cream_pixels.png);}
+          table { width: 100%; margin: 15px 0; border-collapse: collapse; }
+          tr { border: 1px solid #ccc; }
+          th { background-color: #ddd; padding: 5px; font-size: 120%; text-align:center; font-weight: bold; }
+          td { vertical-align: top; padding: 5px; border: 1px solid #ccc; }
+          td:first-child { width: 150px; font-weight: bold; white-space: nowrap; }
+          tr.about td:nth-child(2) { font-size: 120%; font-family: monospace; }
+        </style>
+</head>
+<body>
+<header><img src="assets/fedora_logo.png"><h1>Fedora Commons Repository - Resource Status Ontology</h1>
+<table>
+<tr class="about">
+<td>Namespace</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Resource status ontology</td>
+</tr>
+<tr class="version">
+<td>Version</td>
+<td>1/0/access/2016/06/02</td>
+</tr>
+<tr class="version">
+<td>Prior version</td>
+<td><a href=""></a></td>
+</tr>
+</table></header><div class="table-of-contents">
+<h2>Table of Contents</h2>
+<p><a href="#Classes">Classes</a></p>
+<p><a href="#NamedIndividuals">Named Individuals</a></p>
+<p><a href="#ObjectProperties">Object Properties</a></p>
+</div>
+<article><hr>
+<h2>Entity Definitions</h2>
+<a name="Classes"></a><h3>Classes</h3>
+<div id="#ResourceStatus"><table>
+<tr><th colspan="2">audit:#ResourceStatus</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState#ResourceStatus</td>
+</tr>
+<tr class="label">
+<td>Label</td>
+<td>resource state</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>A value of the state property. Predefined values are active, inactive, and deleted, but additional values should be created as needed.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:Class</td>
+</tr>
+<tr class="property">
+<td>Used With</td>
+<td>
+<a href="##objState">audit:#objState</a> </td>
+</tr>
+<tr class="property">
+<td>Instances</td>
+<td>
+<a href="##active">audit:#active</a> <a href="##deleted">audit:#deleted</a> <a href="##inactive">audit:#inactive</a> </td>
+</tr>
+</table></div>
+<a name="NamedIndividuals"></a><h3>Named Individuals</h3>
+<div id="#active"><table>
+<tr><th colspan="2">audit:#active</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState#active</td>
+</tr>
+<tr class="label">
+<td>Label</td>
+<td>active</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>The resource is active.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:NamedIndividual</td>
+</tr>
+<tr class="property">
+<td>rdf:type</td>
+<td>
+<a href="##ResourceStatus">audit:#ResourceStatus</a> </td>
+</tr>
+</table></div>
+<div id="#deleted"><table>
+<tr><th colspan="2">audit:#deleted</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState#deleted</td>
+</tr>
+<tr class="label">
+<td>Label</td>
+<td>deleted</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>The resource has been marked as deleted.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:NamedIndividual</td>
+</tr>
+<tr class="property">
+<td>rdf:type</td>
+<td>
+<a href="##ResourceStatus">audit:#ResourceStatus</a> </td>
+</tr>
+</table></div>
+<div id="#inactive"><table>
+<tr><th colspan="2">audit:#inactive</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState#inactive</td>
+</tr>
+<tr class="label">
+<td>Label</td>
+<td>inactive</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>The resource is inactive.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:NamedIndividual</td>
+</tr>
+<tr class="property">
+<td>rdf:type</td>
+<td>
+<a href="##ResourceStatus">audit:#ResourceStatus</a> </td>
+</tr>
+</table></div>
+<a name="ObjectProperties"></a><h3>Object Properties</h3>
+<div id="#objState"><table>
+<tr><th colspan="2">audit:#objState</th></tr>
+<tr class="about">
+<td>URI</td>
+<td>http://fedora.info/definitions/1/0/access/ObjState#objState</td>
+</tr>
+<tr class="label">
+<td>Label</td>
+<td>status</td>
+</tr>
+<tr class="comment">
+<td>Description</td>
+<td>Describes the state of a resource, such as active, inactive, or deleted.</td>
+</tr>
+<tr class="property">
+<td>Type</td>
+<td>owl:ObjectProperty</td>
+</tr>
+<tr class="property">
+<td>Domain</td>
+<td>http://fedora.info/definitions/v4/repository#Resource </td>
+</tr>
+<tr class="property">
+<td>Range</td>
+<td>
+<a href="##ResourceStatus">audit:#ResourceStatus</a> </td>
+</tr>
+</table></div></article>
+</body>
+</html>
