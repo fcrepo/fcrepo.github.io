@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="index2html.xsl"?>
+
+<index>
+  <reports title="Fedora API Specification Test Results" url="https://github.com/fcrepo/Fedora-API-Test-Suite">
+    <report implementation="Fedora Commons Repository"
+            fedoraversion="5.1.1"
+            testsuiteversion="1.0-SNAPSHOT #558cda79"
+            url="fcrepo/5.1.1/testsuite-execution-report.html"
+            pass="219"
+            fail="3"
+            skip="19"/>
+    <report implementation="Fedora Commons Repository"
+            fedoraversion="5.0.2"
+            testsuiteversion="1.0-SNAPSHOT #f6172420"
+            url="fcrepo/5.0.2/testsuite-execution-report.html"
+            pass="204"
+            fail="10"
+            skip="25"/>
+    <report implementation="Fedora Commons Repository" 
+            fedoraversion="5.0.0"  
+            testsuiteversion="1.0-SNAPSHOT #f3dd2010" 
+            url="fcrepo/5.0.0/testsuite-execution-report.html" 
+            pass="203" 
+            fail="10" 
+            skip="25"/>
+  </reports>
+</index>
