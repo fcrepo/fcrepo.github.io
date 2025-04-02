@@ -1,0 +1,697 @@
+<html xmlns:wsdldoc="http://www.cs.cornell.edu/~cwilper/wsdldoc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>WSDL Documentation</title>
+   </head>
+   <body>
+      <h2>Fedora-API-M</h2>
+      <dir><i>The Fedora Management service defines an open interface for
+                administering the repository, including creating, modifying, and deleting
+                digital objects, or components within digital objects.  The Management
+                service interacts with the underlying repository system to read content from
+                and write content to the digital object and datastream storage areas.  The
+                Management service exposes a set of operations that enable a client to view
+                and manipulate digital objects from an abstract perspective, meaning that
+                a client does not need to know anything about underlying storage formats,
+                storage media, or storage management schemes for objects.  Also, the
+                underlying repository system handles the details of storing datastream
+                content within the repository, as well as mediating connectivity for
+                datastreams that reference external content.</i></dir>
+      <hr size="1">
+      <h3>addDatastream</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;addDatastream(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a> altIDs, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsLabel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> versionable, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> MIMEType, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> formatURI, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsLocation, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> controlGroup, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Creates a new datastream in the object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream (64 characters max).  
+               			If given as null, Fedora will generate an id for you.<br><code>altIDs - </code>alternate identifiers for the datastream, if any.<br><code>dsLabel - </code>the label for the datastream.<br><code>versionable - </code>whether Fedora should maintain old versions of the datastream when it is modified,
+               			or it should just over-write the old content.<br><code>MIMEType - </code>the mime type.<br><code>formatURI - </code>the format URI (a more granular format identifier than mime type).  Optional.<br><code>dsLocation - </code>the location of the datastream.  The content will be retrieved from this location.<br><code>controlGroup - </code>the control group.  This must be one of "X", "M", "R", or "E".<br><code>dsState - </code>the initial state of the datastream.<br><code>logMessage - </code>a log message.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the datastreamID of the newly added datastream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>addDisseminator</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;addDisseminator(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> bDefPid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> bMechPid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissLabel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#DatastreamBindingMap">fedora-types:DatastreamBindingMap</a> bindingMap, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Creates a disseminator in the object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>bDefPid - </code>the pid of the behavior definition object.<br><code>bMechPid - </code>the pid of the behavior mechanism object.<br><code>dissLabel - </code>the label of the disseminator.<br><code>bindingMap - </code>the binding map.<br><code>dissState - </code>the initial state of the disseminator.<br><code>logMessage - </code>a log message.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the ID of the newly created disseminator.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>describeUser</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#UserInfo">fedora-types:UserInfo</a>&nbsp;describeUser(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> id
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets key information about the named user.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>id - </code>the id of the user.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>information about the user.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>export</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a>&nbsp;export(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> format, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> context
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Exports the entire digital object in the specified XML
+               			format ("foxml1.0" or "metslikefedora1"), and encoded appropriately 
+               			for the specified export context ("public", "migrate", or "archive").
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code><br><code>format - </code>the desired XML format of the export file, either
+               			"foxml1.0" for Fedora Object XML (FOXML) or "metslikefedora1"
+               			for METS (Fedora extension of METS).<br><code>context - </code>the export context, which indicates the intended
+               			use of the export file.  Valid options are (1) "public" which produces an
+               			export file that is appropriate for use outside of the repository (all datastream
+               			content can be obtained via public callback URLs), (2) "migrate" which produces
+               			an export file that is appropriate for migrating an object from one Fedora repository
+               			to another, or (3)"archive" which produces an export file that is a standalone entity, 
+               			where all datastream content is inlines (XML inline and binary base64-encoded inline).
+               			Note that the "archive" option is not available in Fedora 2.0.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the digital object in the requested XML format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>exportObject</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a>&nbsp;exportObject(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>DEPRECATED IN FEDORA 2.0. USE export.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the digital object in the requested XML format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDatastream</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#Datastream">fedora-types:Datastream</a>&nbsp;getDatastream(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a datastream in an object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+                     object.  If null, the current view of the object (the most recent time) 
+                     is assumed.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the datastream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDatastreamHistory</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDatastream">fedora-types:ArrayOfDatastream</a>&nbsp;getDatastreamHistory(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets all versions of a datastream, sorted from most to least recent.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>each version of the datastream, sorted from most to least recent.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDatastreams</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDatastream">fedora-types:ArrayOfDatastream</a>&nbsp;getDatastreams(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsState
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets all the datastreams in an object as of a certain date/time and in a certain state.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+                     object.  If null, the current view of the object (the most recent time) 
+                     is assumed.<br><code>dsState - </code>the state of the datastreams to get, null for all states.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the datastreams.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDisseminator</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#Disseminator">fedora-types:Disseminator</a>&nbsp;getDisseminator(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a disseminator in an object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dissID - </code>the ID of the disseminator.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If null, the current view of the object (the most recent time) 
+               			      is assumed.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir><br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDisseminatorHistory</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDisseminator">fedora-types:ArrayOfDisseminator</a>&nbsp;getDisseminatorHistory(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissID
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets the creation dates of each version of a disseminator.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dissID - </code>the ID of the disseminator.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>creation dates for each version of the disseminator.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDisseminators</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDisseminator">fedora-types:ArrayOfDisseminator</a>&nbsp;getDisseminators(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissState
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets all disseminators in an object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               				      object.  If null, the current view of the object (the most recent time) 
+               			     	 is assumed.<br><code>dissState - </code>the state of the disseminatorss to get, null for all states.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the disseminators.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getNextPID</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a>&nbsp;getNextPID(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr> numPids, </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pidNamespace
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Retrieves the specified number of next available pid(s) for a given pid namespace.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>numPids - </code>the number of pids requested.<br><code>pidNamespace - </code>the namespace of the requested pid(s).<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>an array of the requested next available pid(s).<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getObjectXML</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a>&nbsp;getObjectXML(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets the XML portion of the entire METS-encoded 
+                     digital object for external use (viewing, editing, moving to another 
+                     repository).  XML metadata datastreams will be included inline, content 
+                     datastreams will not be included, and external datastreams will be 
+                     referenced by url.
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the digital object in the Fedora XML internal storage format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>ingest</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;ingest(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a> XML, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> format, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Creates a new digital object in the repository, given the 
+                     data in the provided XML document, and a format indentifier for the XML document format.  
+                     The valid formats are currently: "foxml1.0" and "metslikefedora1".  The object's initial 
+                     state will be A (active).   If the XML document does not specify the
+                     OBJID attribute of the root element, the repository will generate and return a new pid 
+                     for the object resulting from this request.  That pid will have the namespace of 
+                     the repository.  If the XML document specifies a pid, it will be assigned 
+                     to the digital object provided that 1) it conforms to the Fedora pid 
+                     Syntax, 2) it uses a namespace that matches the "retainPIDs" value
+                     configured for the repository, and 3) 
+                     it does not collide with an existing pid of an object in the repository.
+                     
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>XML - </code>the digital object in an XML submission format.<br><code>format - </code>the XML format of the submission<br><code>logMessage - </code>a log message.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the pid of the newly created object.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>ingestObject</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;ingestObject(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a> METSXML, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>DEPRECATED IN FEDORA 2.0. USE ingest.  
+               			Creates a new digital object in the repository, given the data in the provided
+               			XML document, 	and a format indentifier for the METS document format.   
+               			The object's initial  state will be A (active).   If the XML document does not 
+               			specify a pid in the OBJID attribute of the  root element, the repository will 
+               			generate and return a new pid for the object resulting from this request.  
+               			That pid will have the namespace of the repository.  If the XML document 
+               			specifies a pid, it will be assigned to the digital object provided that 
+               			1) it conforms to the Fedora pid Syntax, 2) it uses a namespace that matches
+                           the "retainPIDs" value configured for the repository, and 3) it 
+                           does not collide with an existing pid of an object in 
+               			the repository. 
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>METSXML - </code>the digital object in the METS (Fedora Extension) XML submission format.<br><code>logMessage - </code>a log message.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the pid of the newly created object.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>modifyDatastreamByReference</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;modifyDatastreamByReference(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a> altIDs, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsLabel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> versionable, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> MIMEType, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> formatURI, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsLocation, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> force
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Modifies an existing datastream in an object, by reference.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br><code>altIDs - </code>alternate identifiers for the datastream, if any.<br><code>dsLabel - </code>the label for the datastream.<br><code>versionable - </code>whether Fedora should maintain old versions of the 
+               			datastream when it is modified, or it should just over-write the 
+               			old content.<br><code>MIMEType - </code>the mime type.<br><code>formatURI - </code>the format URI (a more granular format identifier than mime type).  Optional.<br><code>dsLocation - </code>the url to the datastream.<br><code>dsState - </code>the state of the datastream.<br><code>logMessage - </code>a message about the change.<br><code>force - </code>whether to force the change even if it would break a data contract.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>modifyDatastreamByValue</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;modifyDatastreamByValue(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a> altIDs, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsLabel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> versionable, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> MIMEType, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> formatURI, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#base64Binary">xsd:base64Binary</a> dsContent, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> force
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Modifies an existing datastream in an object, by value.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br><code>altIDs - </code>alternate identifiers for the datastream, if any.<br><code>dsLabel - </code>the label for the datastream.<br><code>versionable - </code>whether Fedora should maintain old versions of the 
+               			datastream when it is modified, or it should just over-write the 
+               			old content.<br><code>MIMEType - </code>the mime type.<br><code>formatURI - </code>the format URI (a more granular format identifier 
+               			than mime type).  Optional.<br><code>dsContent - </code>the content of the datastream.<br><code>dsState - </code>the state of the datastream.<br><code>logMessage - </code>a message about the change.<br><code>force - </code>whether to force the change even if it would break a data contract.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>modifyDisseminator</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;modifyDisseminator(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> bMechPid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissLabel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#DatastreamBindingMap">fedora-types:DatastreamBindingMap</a> bindingMap, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> force
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Modifies a disseminator in the object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dissID - </code>the ID of the disseminator.<br><code>bMechPid - </code>the pid of the behavior mechanism object.<br><code>dissLabel - </code>the label of the disseminator.<br><code>bindingMap - </code>the binding map.<br><code>dissState - </code>the state of the disseminator.<br><code>logMessage - </code>a message about the change.<br><code>force - </code>whether to force the change even if it would break a data contract.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>modifyObject</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;modifyObject(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> state, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> label, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Changes the state and/or label of the object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>state - </code>the new state, A, I or D.  Null means leave unchanged.<br><code>label - </code>the new label.  Null means leave unchanged.<br><code>logMessage - </code>a log message.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>purgeDatastream</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDateTimeString">fedora-types:ArrayOfDateTimeString</a>&nbsp;purgeDatastream(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> endDT, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> force
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Permanently removes one or more versions of a datastream from an object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br><code>endDT - </code>the (inclusive) ending date-time stamp of the range. If 
+                         null, this is taken to be the greatest possible value, and thus,
+                         the entire version history of the datastream will be purged.<br><code>logMessage - </code>an explanation of the purge.<br><code>force - </code>whether to force the change even if it would break a data contract.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the creation date/time of each deleted datastream.
+                       <br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>purgeDisseminator</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfDateTimeString">fedora-types:ArrayOfDateTimeString</a>&nbsp;purgeDisseminator(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> endDT, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Permanently removes one or more versions of a disseminator from an object.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dissID - </code>the ID of the disseminator.<br><code>endDT - </code>the (inclusive) ending date-time stamp of the range. If 
+                     null, this is taken to be the greatest possible value.<br><code>logMessage - </code>an explanation of the purge.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the creation date/time of each deleted disseminator, 
+                     earliest first.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>purgeObject</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;purgeObject(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#boolean">xsd:boolean</a> force
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Permanently removes an object from the repository.
+                     
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>logMessage - </code>an explanation of the purge.<br><code>force - </code>whether to force the change even if it would break a dependency.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>setDatastreamState</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;setDatastreamState(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Sets the state of a datastream to the specified state value.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dsID - </code>the ID of the datastream.<br><code>dsState - </code>the state to be set on the datastream.<br><code>logMessage - </code>a message about the change.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>setDisseminatorState</h3>
+      <dir><code><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a>&nbsp;setDisseminatorState(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dissState, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> logMessage
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Sets the state of a disseminator to the specified value.</p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>dissID - </code>the ID of the disseminator.<br><code>dissState - </code>the state to be set on the disseminator.<br><code>logMessage - </code>a message about the change.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The timestamp of the operation according to the server, in ISO8601 format.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+   </body>
+</html>

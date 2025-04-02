@@ -1,0 +1,475 @@
+<html xmlns:wsdldoc="http://www.cs.cornell.edu/~cwilper/wsdldoc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>WSDL Documentation</title>
+   </head>
+   <body>
+      <h2>Fedora-API-A-LITE</h2>
+      <dir><i>  This is a simple URI-oriented service definition for the Access service 
+            			of a Fedora repository.  It is intended to support a REST-like style of access to the 
+            			Fedora Access web service (in contrast to a traditional SOAP web service definition).  
+            			This means that we define a simple URL syntax that can be used to issue service requests.
+            			API-A-Lite does not provide service bindings for all of the operations defined in Fedora's full
+            			Access service (API-A).  API-A-Lite only provides bindings for getDissemination, getObjectProfile,
+                       findObjects, and resumeFindObjects. 
+            			The result of the getDissemination request is a MIME-typed stream.  The result of the getObjectProfile 
+            			request is either HTML or XML, whichever the client requested.  The result of the search methods
+                       is also either HTML or XML.  When URL syntax is shown below, green indicates required parts and red indicates optional
+            parts.
+            		</i></dir>
+      <hr size="1">
+      <h3>describeRepository</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;describeRepository(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">Gets key metadata elements about the Fedora repository
+                  				server including repository name, version, baseURL, pid namespace,
+                  				and sample request URLs.  The repository info can be returned as XML data 
+                  				or as an HTML presentation.
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">URL Syntax:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<b>http(s)://<font color="#22cc22">host:port</font>/fedora/describe?{<font color="#22cc22">xml=boolean</font>}</b>
+                  				
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/"> A complete example URL conforming to this syntax is:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<i>http://localhost:8080/fedora/describe?xml=true</i>
+                  				
+               </p>
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>xml - </code>a string value of "true" or "false" indicating that the repository info should be XML encoded. 
+               				Fedora will assume a default of "false" if the xml part is not specified.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir> The repository info response contains key metadata about the Fedora
+               				repository server including repository name, version, baseURL, pid namespace, and
+               				sample request URLs.  The repository info will be returned as either XML or HTML.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>findObjects</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;findObjects(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> terms, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> query, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> maxResults, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> label, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> fType, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> cModel, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> state, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> ownerId, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> cDate, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> mDate, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dcmDate, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> title, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> creator, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> subject, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> description, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> publisher, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> contributor, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> date, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> type, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> format, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> identifier, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> source, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> language, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> relation, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> coverage, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> rights
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">Gets the requested ObjectFields on all objects in the 
+                              repository matching the given criteria.  This is like a SQL query on a table that
+                              indexes all objects in the repository with key fields, including unqualified dublin core
+                              metadata.
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">URL Syntax:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<b>http(s)://<font color="#22cc22">host:port</font>/fedora/search?{<font color="#22cc22">terms=TERMS</font>|<font color="#22cc22">query=QUERY</font>}<font color="#cc2222">&amp;maxResults=MAXRESULTS<br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;xml=true&amp;pid=true&amp;label=true&amp;fType=true&amp;cModel=true&amp;state=true&amp;ownerId=true<br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;cDate=true&amp;mDate=true&amp;dcmDate=true&amp;bDef=true&amp;bMech=true&amp;title=true<br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;creator=true&amp;subject=true&amp;description=true&amp;publisher=true&amp;contributor=true<br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;date=true&amp;type=true&amp;format=true&amp;identifier=true&amp;source=true&amp;language=true<br></br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&amp;relation=true&amp;coverage=true&amp;rights=true</font>
+                     					</b>
+                  				
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/"> A couple complete example URLs conforming to this syntax, are:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<i>http://localhost:8080/fedora/search?terms=fedora&amp;pid=true</i>
+                  				
+               </p>
+               				
+               <dir xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  This example requests that the server provide the pids of objects where any of the indexed fields contain the word fedora.
+                  Since maxResults and xml aren't specified, the maxResults the server uses will be a small number, and the result will
+                  be provided in html.
+                  
+               </dir>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<i>http://localhost:8080/fedora/search?query=pid~*1&amp;maxResults=50&amp;xml=true&amp;pid=true&amp;creator=true</i>
+                  				
+               </p>
+               				
+               <dir xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  This example requests that the server provide the pids and dc:creators of objects where the pid ends with the number 1.
+                  It asks for up to 50 results at a time from the server, and requests that the result is provided in xml.
+                  
+               </dir>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">At least one of the object fields should be specified as true.  Object fields are the optional fields
+                              beginning with <b>pid</b>, above.  The result of the search will be a simple HTML document if
+                              the xml parameter is not specified.  If it is, the result will look like:
+                  
+               </p>
+               				<pre xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+&lt;result&gt;
+  &lt;listSession&gt;
+    &lt;token&gt;abcdef123456&lt;/token&gt;
+    &lt;cursor&gt;0&lt;/cursor&gt;
+    &lt;completeListSize&gt;500&lt;/completeListSize&gt;
+    &lt;expirationDate&gt;2003-03-04T12:53:00Z&lt;/expirationDate&gt;
+  &lt;/listSession&gt;
+  &lt;resultList&gt;
+    &lt;objectFields&gt;
+        &lt;pid&gt;demo:5&lt;/pid&gt;
+        &lt;bDef&gt;demo:1&lt;/bDef&gt;
+        &lt;bDef&gt;demo:3&lt;/bDef&gt;
+        &lt;subject&gt;My Subject&lt;/subject&gt;
+        ...
+    &lt;/objectFields&gt;
+    ...
+  &lt;/resultList&gt;
+&lt;/result&gt;
+</pre>
+               				<p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">...where dots indicate possible repeating elements in the xml.  The listSession element is only provided if the result is
+                  a partial result. (See resumeFindObjects below)
+               </p>
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>terms - </code>a sequence of characters (including the ? and * wildcards) 
+                          for the search.  If this sequence is found in any of the fields for an 
+                          object, the object is considered a match.  This parameter cannot
+                          be used in combination with the query parameter.<br><code>query - </code>a sequence of space-separated conditions.  A condition
+                          consists of a field name followed directly by an operator, followed
+                          directly be a value.  Valid field names are (pid, label, fType, cModel,
+                          state, ownerId, cDate, mDate, dcmDate, bDef, bMech, title, creator, subject,
+                          description, publisher, contributor, date, type, format, identifier,
+                          source, language, relation, coverage, rights).
+                          Valid operators are =, ~, &gt;, &gt;=, &lt;, &lt;=.  The contains (~) operator
+                          may be used in combination with the ? and * wildcards to query for simple
+                          string patterns.  The inequality operators should only be used with
+                          date-based fields (cDate, mDate, dcmDate, date).
+                          Values may be any string.  If the string contains a space, the
+                          value should begin and end with a single quote character ('). If all conditions
+                          are met for an object, the object is considered a match. This parameter
+                          cannot be used in combination with the terms parameter.<br><code>maxResults - </code>the maximum number of results that the server should
+                               provide at once.  If this is unspecified, the server will default
+                               to a small value.<br><code>xml - </code>whether to return the result as an xml document.  If this is
+                          given as true, the result will be in xml.  Otherwise, the result will be
+                          provided in a simple html document.<br><code>pid - </code>if true, the pids of matching objects will be included in the response.<br><code>label - </code>if true, the labels of matching objects will be included in the response.<br><code>fType - </code>if true, the fedora object types of matching objects will be included in the response.<br><code>cModel - </code>if true, the content models of matching objects will be included in the response.<br><code>state - </code>if true, the states of matching objects will be included in the response.<br><code>ownerId - </code>if true, the userids of users who own the objects will be included in the response.<br><code>cDate - </code>if true, the create date of objects will be included in the response.<br><code>mDate - </code>if true, the modified date of objects will be included in the response.<br><code>dcmDate - </code>if true, the modified date of the dublin core record for the objects will be included in the response.<br><code>title - </code>if true, the dc:titles of the objects will be included in the response.<br><code>creator - </code>if true, the dc:creators of the objects will be included in the response.<br><code>subject - </code>if true, the dc:subjects of the objects will be included in the response.<br><code>description - </code>if true, the dc:descriptions of the objects will be included in the response.<br><code>publisher - </code>if true, the dc:publishers of the objects will be included in the response.<br><code>contributor - </code>if true, the dc:contributors of the objects will be included in the response.<br><code>date - </code>if true, the dc:dates of the objects will be included in the response.<br><code>type - </code>if true, the dc:types of the objects will be included in the response.<br><code>format - </code>if true, the dc:formats of the objects will be included in the response.<br><code>identifier - </code>if true, the dc:identifiers of the objects will be included in the response.<br><code>source - </code>if true, the dc:sources of the objects will be included in the response.<br><code>language - </code>if true, the dc:languages of the objects will be included in the response.<br><code>relation - </code>if true, the dc:relations of the objects will be included in the response.<br><code>coverage - </code>if true, the dc:coverages of the objects will be included in the response.<br><code>rights - </code>if true, the dc:rights of the objects will be included in the response.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>An xml chunk containing an array of ObjectFields and, possibly,
+                           a listSession.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDatastreamDissemination</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getDatastreamDissemination(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a datastream in the digital object.  This is
+                           a shorter, convenience method for getDissemination 
+                           http(s)://hostname:port/fedora/get/pid/fedora-system:3/getItem?itemID=dsID.
+                           Note that if a particular date/timestamped view of a datastream is
+                           needed, getDissemination still must be used.  When making direct 
+                           links to datastreams within web pages or applications, this
+                           syntax is recommended.
+                           
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the persistent identifier of the object.<br><code>dsID - </code>the identifier of the datastream to get.<br><code>asOfDateTime - </code>the date/time stamp specifying that the dissemination should reflect
+               				what the object looked like at a certain date and time.  If this part is not present 
+               				in the request, or if it is empty,  the current view of the object (the most recent time)
+               				 is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the datastream as a mime-typed stream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDissemination</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getDissemination(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> bDefPid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> methodName, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> parameters
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a MIME-typed view of the digital object, given the 
+               				behavior definition id, the behavior method name and any parameters to the 
+               				behavior method. The getDissemination request hides from the client the details
+               				of how a behavior method is fulfilled by the Fedora Access service  (i.e., it does
+               				not require the client to know about the behavior mechanism that performs the work, 
+               				or how the request is invoked upon the behavior mechanism).  The client need only
+               				specify an abstract behavior definition information in the request.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the persistent identifier of the object.<br><code>bDefPid - </code>the persistent identifier of the behavior definition.<br><code>methodName - </code>the name of the behavior method to invoke.<br><code>asOfDateTime - </code>the date/time stamp specifying that the dissemination should reflect
+               				what the object looked like at a certain date and time.  If this part is not present 
+               				in the request, or if it is empty,  the current view of the object (the most recent time)
+               				 is assumed.
+               			<br><code>parameters - </code>a set of name-value pairs that are parameters to the behavior method.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the desired view of the object as a mime-typed stream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getObjectHistory</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getObjectHistory(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p> Provides a list of timestamps indicating when a component of the object was created or modified.  These timestamps can be
+               used to request timestamped disseminations providing views of the object on a specific date. The list of timestamps can be
+               returned as XML data or as an HTML presentation.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the persistent identifier of the object.<br><code>xml - </code>a string value of "true" or "false" indicating that the list of timestamps should be XML encoded. Fedora will assume a default
+               of "false" if the xml part is not specified.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir> Provides a list of timestamps indicating when a component of the object was created or modified.  These timestamps can be
+               used to request timestamped disseminations of the object to view the object as it appeared on a specific date and to indicate
+               the change history of the object.The list of timestamps will be returned as either XML or HTML.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getObjectProfile</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getObjectProfile(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p> Gets a profile of the digital object, which contains
+               				key metadata elements about the object, and URLs for the object's
+               				Dissemination Index and Item Index.  The object profile is a sort of
+               				"home base" for the object from which the object can be investigated.
+               				The object profile can be returned as XML data or as an HTML presentation.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the persistent identifier of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If this part is not present in the request, or if it is empty,  the current 
+               			      view of the object (the most recent time) is assumed.
+               			<br><code>xml - </code>a string value of "true" or "false" indicating that the list of object methods should be XML encoded. 
+               				Fedora will assume a default of "false" if the xml part is not specified.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir> The object profile response contains key metadata about the object
+               				and URLs for the object's Dissemination Index and Item Index.  The object
+               				profile will be returned as either XML or HTML.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>listDatastreams</h3>
+      <dir><code>&nbsp;listDatastreams(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Inquires upon all object Datastreams to obtain datastreams contained
+               				by a digital object.  This returns a set of datastream locations
+               				that represent all possible datastreams available in the object.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If null, the current view of the object (the most recent time) 
+               			      is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>A set of method definitions that represent 
+               				all possible disseminations that can be run on the object.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>listMethods</h3>
+      <dir><code>&nbsp;listMethods(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Inquires upon all object Disseminators to obtain Behavior Definition pids,
+               				and methodNames supported by a digital object.  This returns a set of method definitions
+               				that represent all possible disseminations that can be run on the object.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If null, the current view of the object (the most recent time) 
+               			      is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>A set of method definitions that represent 
+               				all possible disseminations that can be run on the object.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>resumeFindObjects</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;resumeFindObjects(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> sessionToken, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets the next list of results from a truncated
+                               findObjects response.  When a call to findObjects returns
+                               only part of a result, it will provide a session token
+                               that can be used to get the next chunk of results.  Repeated
+                               calls to resumeFindObjects can then be made, until no listSession
+                               element is given in the response.  When the result is requested in
+                               html format, the "next" button causes this method to
+                               be invoked.  The url syntax for this method is the same as
+                               that for findObjects, but with the parameters below.  sessionToken
+                               is required and xml is optional.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>sessionToken - </code>the token of the session in which the next few
+                               results can be found.<br><code>xml - </code>whether to return the result as an xml document.  If this is
+                          given as true, the result will be in xml.  Otherwise, the result will be
+                          provided in a simple html document.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>An xml chunk containing an array of ObjectFields and, possibly,
+                           a listSession.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+   </body>
+</html>

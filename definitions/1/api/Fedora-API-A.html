@@ -1,0 +1,297 @@
+<html xmlns:wsdldoc="http://www.cs.cornell.edu/~cwilper/wsdldoc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>WSDL Documentation</title>
+   </head>
+   <body>
+      <h2>Fedora-API-A</h2>
+      <dir><i>The Fedora Access service defines an open interface for
+            		    accessing digital objects.  The access operations include methods to do
+            		    reflection on a digital object (i.e., to discover the kinds of
+            		    disseminations that are available on the object), and to request
+            		    disseminations.  The major function of the Fedora Access service is 
+            		    to fulfill a client's request for dissemination.  To support disseminations,
+            		    the underlying repository system must evaluate the behavior associations
+            		    specified in a digital object, and figure out how to dispatch a service
+            		    request to a supporting service with which the digital object associates.
+            		    The supporting service may be internal to the repository system, or it may
+            		    be an external web service that the repository must call upon.  The
+            		    underlying repostitory system facilitates all external service bindings
+            		    on behalf of the client, simply returning a dissemination result via the
+            		    Access service layer.
+            		</i></dir>
+      <hr size="1">
+      <h3>describeRepository</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#RepositoryInfo">fedora-types:RepositoryInfo</a>&nbsp;describeRepository(
+            
+            
+            
+            )
+            	
+            
+            </code><dir>
+            <p>Gets key metadata fields that describe the Fedora 
+               				repository server including repository name, version, baseURL,
+               				pid namespace, sample request URLs.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir></dir>
+         </p>
+         <p><b>Returns:</b><dir>A data structure that contains key metadata
+               				describing the Fedora repository server including repository name, 
+               				version, base URL, pid namespace, and sample request URLs.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>findObjects</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#FieldSearchResult">fedora-types:FieldSearchResult</a>&nbsp;findObjects(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a> resultFields, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/xmlschema-2/#nonNegativeInteger ">xsd:nonNegativeInteger</a> maxResults, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#FieldSearchQuery">fedora-types:FieldSearchQuery</a> query
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets the requested ObjectFields on all objects in the
+                               repository matching the given criteria.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>resultFields - </code>an array of unique object fields
+                           from fedora-types:ObjectFields.  This tells the server which fields
+                           should be returned from the query.<br><code>maxResults - </code>the maximum number of results that the server should
+                               provide at once.  This may be null, in which case the server
+                               will return the maximum number of results it has been configured
+                               to return.<br><code>query - </code>the terms or conditions for the search.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>containing an array of ObjectFields and, possibly,
+                           a listSession.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDatastreamDissemination</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getDatastreamDissemination(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> dsID, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a datastream in the digital object.  This is
+                           a shorter, convenience method for getDissemination 
+                           http://hostname:port/fedora/get/pid/fedora-system:3/getItem?itemID=dsID.
+                           Note that if a particular date/timestamped view of a datastream is
+                           needed, getDissemination still must be used.  When making direct 
+                           links to datastreams within web pages or applications, this
+                           syntax is recommended.
+                           
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the persistent identifier of the object.<br><code>dsID - </code>the identifier of the datastream to get.<br><code>asOfDateTime - </code>the date/time stamp specifying that the dissemination should reflect
+               				what the object looked like at a certain date and time.  If this part is not present 
+               				in the request, or if it is empty,  the current view of the object (the most recent time)
+               				 is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the datastream as a mime-typed stream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getDissemination</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#MIMETypedStream">fedora-types:MIMETypedStream</a>&nbsp;getDissemination(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> bDefPid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> methodName, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfProperty">fedora-types:ArrayOfProperty</a> parameters, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a MIME-typed view of a digital object,
+               				given the behavior definition id, a behavior method name, and any behavior 
+               				method parameters.	Information about behavior method names and parameters is
+               				obtained via other APA-A operations	(see getObjectMethods,	getBehaviorMethods,
+               				and getBehaviorMethodsXML). The getDissemination operation essentially
+               				encapsulates another operation (a behavior method on the Fedora object). 
+               				The getDissemination operation hides from the client the details of
+               				how a behavior method is fulfilled (i.e., what behavior mechanism 
+               				performs the work, and how the request is invoked upon the behavior
+               				mechanism).
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>bDefPid - </code>the pid of the behavior definition.<br><code>methodName - </code>the name of the method to invoke.<br><code>parameters - </code>a set of name-value pairs that act as parameters to the method.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               				object.  If null, the current view of the object (the most recent time) 
+               				is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>the desired view of the object as a mime-typed stream.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getObjectHistory</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfString">fedora-types:ArrayOfString</a>&nbsp;getObjectHistory(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a list of timestamps indicating when components changed in an object.  This is a set of timestamps indicating when a
+               datastream or disseminator was created or modified in the object. These timestamps can be used to request a timestamped dissemination
+               request to view the object as it appeared at a specific point in time.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>a list of timestamps indicating when components in the object were created or modified.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>getObjectProfile</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ObjectProfile">fedora-types:ObjectProfile</a>&nbsp;getObjectProfile(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets a profile of the object which includes key
+               				metadata fields and URLs for the object Dissemination 
+               				Index and the object Item Index.  Can be thought of as a
+               				default view of the object.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               				object.  If null, the current view of the object (the most recent time) 
+               				is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>A data structure that contains key metadata
+               				about the object, including URLs to view the Dissemination
+               				Index and the Item Index for the object.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>listDatastreams</h3>
+      <dir><code>&nbsp;listDatastreams(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Inquires upon all object Datastreams to obtain datastreams contained
+               				by a digital object.  This returns a set of datastream locations
+               				that represent all possible datastreams available in the object.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If null, the current view of the object (the most recent time) 
+               			      is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>A set of method definitions that represent 
+               				all possible disseminations that can be run on the object.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>listMethods</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#ArrayOfObjectMethodsDef">fedora-types:ArrayOfObjectMethodsDef</a>&nbsp;listMethods(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pid, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> asOfDateTime
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Inquires upon all object Disseminators to obtain Behavior Definition pids,
+               				and methodNames supported by a digital object.  This returns a set of method definitions
+               				that represent all possible disseminations that can be run on the object.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>pid - </code>the pid of the object.<br><code>asOfDateTime - </code>the date/time stamp specifying the desired view of the 
+               			      object.  If null, the current view of the object (the most recent time) 
+               			      is assumed.
+               			<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>A set of method definitions that represent 
+               				all possible disseminations that can be run on the object.
+               			<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+      <h3>resumeFindObjects</h3>
+      <dir><code><a href="http://www.fedora.info/definitions/1/0/types/#FieldSearchResult">fedora-types:FieldSearchResult</a>&nbsp;resumeFindObjects(
+            
+            
+            
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> sessionToken
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>Gets the next list of results from a truncated
+                               findObjects response.
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>sessionToken - </code>the token of the session in which the next few
+                               results can be found.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>containing an array of ObjectFields and, possibly,
+                           a listSession.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+   </body>
+</html>

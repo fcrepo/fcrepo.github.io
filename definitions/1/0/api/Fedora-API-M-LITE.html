@@ -1,0 +1,66 @@
+<html xmlns:wsdldoc="http://www.cs.cornell.edu/~cwilper/wsdldoc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>WSDL Documentation</title>
+   </head>
+   <body>
+      <h2>Fedora-API-M-LITE</h2>
+      <dir><i>  This is a simple URI-oriented service definition for the Management service 
+            			of a Fedora repository.  It is intended to support a REST-like style of access to the 
+            			Fedora Management web service (in contrast to a traditional SOAP web service definition).  
+            			This means that we define a simple URL syntax that can be used to issue service requests.
+            			API-M-LITE does not provide service bindings for all of the operations defined in Fedora's full
+            			Management service (API-M).  API-M-LITE currently only provides bindings for getNextPID. 
+            			The result of the getNextPID request is either HTML or XML, whichever the client requested. 
+            			 When URL syntax is shown below, green indicates required parts and red indicates optional parts.
+            		</i></dir>
+      <hr size="1">
+      <h3>getNextPID</h3>
+      <dir><code>&nbsp;getNextPID(
+            
+            
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> numPids, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> pidNamespace, 
+            </nobr><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <nobr><a href="http://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string">xsd:string</a> xml
+            </nobr>
+            )
+            	
+            
+            </code><dir>
+            <p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">Gets a list of the requested next available pid(s). The PID list can be returned as XML data 
+                  				or as an HTML presentation.
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">URL Syntax:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<b>http://<font color="#22cc22">host:port</font>/fedora/mgmt/getNextPID?{<font color="#cc2222">numPids=numPids&amp;pidNamespace=pidNamespace&amp;xml=boolean</font>}</b>
+                  				
+               </p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/"> A complete example URL conforming to this syntax is:</p>
+               				
+               <p xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apachesoap="http://xml.apache.org/xml-soap/" xmlns:fedora-api="http://www.fedora.info/definitions/1/0/api/" xmlns:fedora-types="http://www.fedora.info/definitions/1/0/types/">
+                  					<i>http://localhost:8080/fedora/mgmt/getNextPID?numPids=5&amp;pidNamespace=my-pidNamespace&amp;xml=true</i>
+                  				
+               </p>
+               			
+            </p>
+         </dir>
+         <p><b>Parameters:</b><dir><code>numPids - </code>a string value indicating the number of requested pid(s). Fedora will assume a default value of "1" if the numPids part is
+               not specified.<br><code>pidNamespace - </code>a string value indicating the namespace used for the requested pids. Fedora will assume the default value specified by
+               				the pidNamespace parameter in the fedora.fcfg configuration file if the "pidNamespace" part is not specified.<br><code>xml - </code>a string value of "true" or "false" indicating that the repository should be XML encoded. Fedora will assume 
+               			a default of "false" if the "xml" part is not specified.<br></dir>
+         </p>
+         <p><b>Returns:</b><dir>The getNextPID response contains a list of the requested next available pids.<br></dir>
+         </p>
+      </dir>
+      <hr size="1">
+   </body>
+</html>

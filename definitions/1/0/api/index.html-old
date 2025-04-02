@@ -1,0 +1,73 @@
+<html xmlns:wsdldoc="http://www.cs.cornell.edu/~cwilper/wsdldoc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Fedora Access and Management Web Services - API Documentation</title>
+   </head>
+   <body>
+<h1>Fedora Access and Management Web Services - API Documentation</h1>
+<hr size=1>
+Jump to:
+<ul>
+  <li> <a href="#apia">API-A</a>
+  <li> <a href="#apialite">API-A-Lite</a>
+  <li> <a href="#apim">API-M</a>
+  <li> <a href="#apimlite">API-M-Lite</a>
+</ul>
+<hr size=1>
+<a name="apia">
+      <h2><a href="http://www.fedora.info/wiki/index.php/API-A_Methods">Fedora-API-A</a> [<a href="Fedora-API-A.wsdl">view wsdl</a>]</h2>
+      <dir><i>The Fedora Access service defines an open interface for
+            		    accessing digital objects.  The access operations include methods to do
+            		    reflection on a digital object (i.e., to discover the kinds of
+            		    disseminations that are available on the object), and to request
+            		    disseminations.  The major function of the Fedora Access service is 
+            		    to fulfill a client's request for dissemination.  To support disseminations,
+            		    the underlying repository system must evaluate the behavior associations
+            		    specified in a digital object, and figure out how to dispatch a service
+            		    request to a supporting service with which the digital object associates.
+            		    The supporting service may be internal to the repository system, or it may
+            		    be an external web service that the repository must call upon.  The
+            		    underlying repostitory system facilitates all external service bindings
+            		    on behalf of the client, simply returning a dissemination result via the
+            		    Access service layer.
+            		</i></dir>
+<hr size=1>
+<a name="apialite">
+      <h2><a href="http://www.fedora.info/wiki/index.php/API-A-Lite_Methods">Fedora-API-A-LITE</a> [<a href="Fedora-API-A-LITE.wsdl">view wsdl</a>]</h2>
+      <dir><i>  This is a simple URI-oriented service definition for the Access service 
+            			of a Fedora repository.  It is intended to support a REST-like style of access to the 
+            			Fedora Access web service (in contrast to a traditional SOAP web service definition).  
+            			This means that we define a simple URL syntax that can be used to issue service requests.
+            			API-A-Lite does not provide service bindings for all of the operations defined in Fedora's full
+            			Access service (API-A).  API-A-Lite only provides bindings for getDissemination, getObjectProfile,
+                       findObjects, and resumeFindObjects. 
+            			The result of the getDissemination request is a MIME-typed stream.  The result of the getObjectProfile 
+            			request is either HTML or XML, whichever the client requested.  The result of the search methods
+                       is also either HTML or XML.  When URL syntax is shown below, green indicates required parts and red indicates optional
+            parts.
+            		</i></dir>
+<hr size=1>                 
+<a name="apim"> 
+      <h2><a href="http://www.fedora.info/wiki/index.php/API-M_Methods">Fedora-API-M</a> [<a href="Fedora-API-M.wsdl">view wsdl</a>]</h2>
+      <dir><i>The Fedora Management service defines an open interface for
+                administering the repository, including creating, modifying, and deleting
+                digital objects, or components within digital objects.  The Management
+                service interacts with the underlying repository system to read content from
+                and write content to the digital object and datastream storage areas.  The
+                Management service exposes a set of operations that enable a client to view
+                and manipulate digital objects from an abstract perspective, meaning that
+                a client does not need to know anything about underlying storage formats,
+                storage media, or storage management schemes for objects.  Also, the
+                underlying repository system handles the details of storing datastream
+                content within the repository, as well as mediating connectivity for
+                datastreams that reference external content.</i></dir>
+<hr size="1">
+<a name="apimlite"> 
+      <h2><a href="http://www.fedora.info/wiki/index.php/API-M-Lite_Methods">Fedora-API-M-LITE</a> [<a href="Fedora-API-M-LITE.wsdl">view wsdl</a>]</h2>
+      <dir><i>
+This is a simple URI-oriented service definition for the Management service of a Fedora repository. It is intended to support a REST-like style of access to the Fedora Management web service (in contrast to a traditional SOAP web service definition). This means that we define a simple URL syntax that can be used to issue service requests. API-M-LITE does not provide service bindings for all of the operations defined in Fedora's full Management service (API-M). API-M-LITE currently only provides bindings for getNextPID. The result of the getNextPID request is either HTML or XML, whichever the client requested. When URL syntax is shown below, green indicates required parts and red indicates optional parts. 
+</i></dir>
+<hr size="1">
+</body>
+</html>
